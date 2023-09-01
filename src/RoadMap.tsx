@@ -99,6 +99,26 @@ const Circle = styled.circle<{ fillColor: string }>`
     stroke-width: 2;
 `;
 
+const SvgContainer = styled.svg`
+    transform: rotate(90deg);
+`;
+
+const TextContainer = styled.div`
+   color: white;
+   font-size: 24px;
+   white-space: pre-wrap;
+   margin-top: 10px;
+`;
+
+const Title = styled.span`
+   font-size: 32px;
+   color: ${(props) => props.color};
+`;
+
+const G = styled.g``;
+
+const Path = styled.path``;
+
 export const RoadMap: React.FC = () => {
 
     const path = "M2.16748 1.94629V472.188C2.16748 611.547 115.075 724.445 254.445 724.445C393.815 724.445 506.722 611.547 506.722 472.188V254.455C506.722 115.097 619.63 2.19829 759 2.19829C898.37 2.19829 1011.28 115.097 1011.28 254.455V472.188C1011.28 611.547 1124.18 724.445 1263.55 724.445C1402.92 724.445 1515.83 611.547 1515.83 472.188V1.94629";
@@ -111,7 +131,7 @@ export const RoadMap: React.FC = () => {
 
     return (
 
-        <svg
+        <SvgContainer
             xmlns="http://www.w3.org/2000/svg"
             width="1500"
             height="1600"
@@ -120,7 +140,7 @@ export const RoadMap: React.FC = () => {
             style={{ transform: 'rotate(90deg)' }}
         >
 
-            <path
+            <Path
                 d={path}
                 stroke="#7B8793"
                 strokeOpacity="0.26"
@@ -137,9 +157,14 @@ export const RoadMap: React.FC = () => {
 
                 return (
 
-                    <g key={index}>
+                    <G key={index}>
 
-                        <Circle cx={point.x} cy={point.y} r="10" fillColor={item.circleColor} />
+                        <Circle
+                            cx={point.x}
+                            cy={point.y}
+                            r="10"
+                            fillColor={item.circleColor}
+                        />
 
                         <foreignObject
                             x={point.x + 15}
@@ -149,36 +174,30 @@ export const RoadMap: React.FC = () => {
                             transform={`rotate(270 ${point.x + 15} ${point.y})`}
                         >
 
-                            <div
+                            <TextContainer>
 
-                                style={{
-                                    color: "white",
-                                    fontSize: "24px",
-                                    whiteSpace: "pre-wrap",
-                                    marginTop: "10px",
-                                }}
-                            >
-
-                                <span style={{ fontSize: "32px", color: item.textColor }}>
+                                <Title color={item.textColor}>
 
                                     {item.title}
 
-                                </span>
+                                </Title>
 
                                 <br />
 
                                 {item.text}
 
-                            </div>
+                            </TextContainer>
 
                         </foreignObject>
 
-                    </g>
+                    </G>
 
                 );
 
             })}
 
-        </svg>
+        </SvgContainer>
+        
     );
+
 }
