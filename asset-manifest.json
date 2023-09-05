@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/roadMap/static/js/main.2cb0554b.js",
+    "main.js": "/roadMap/static/js/main.e630d85c.js",
     "index.html": "/roadMap/index.html",
-    "main.2cb0554b.js.map": "/roadMap/static/js/main.2cb0554b.js.map"
+    "main.e630d85c.js.map": "/roadMap/static/js/main.e630d85c.js.map"
   },
   "entrypoints": [
-    "static/js/main.2cb0554b.js"
+    "static/js/main.e630d85c.js"
   ]
 }
