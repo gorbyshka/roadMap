@@ -16,17 +16,21 @@ function App() {
 
   return (
     <>
+
       <GlobalStyle />
-      
+
       <Wrapper>
 
         <RoadMap />
 
       </Wrapper>
-      
+
       <Wrapper />
+
     </>
+
   );
+
 }
 
 export default App;
